@@ -62,7 +62,7 @@ namespace SocialMediaApp.Controllers
             }
             
 
-<<<<<<< HEAD
+//<<<<<<< HEAD
         }
         [HttpGet]
         public IActionResult Register()
@@ -110,8 +110,9 @@ namespace SocialMediaApp.Controllers
             await _signInManager.SignOutAsync();
             return RedirectToAction("Index", "Race");
         }
-=======
-        }  
->>>>>>> 164f2ad19913584f42c25530ad75062a5d293df8
-    }
+
+    
+    }  
+    
 }
+
