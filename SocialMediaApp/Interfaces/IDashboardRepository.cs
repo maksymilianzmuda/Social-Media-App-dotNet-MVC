@@ -1,4 +1,5 @@
-﻿using SocialMediaApp.Models;
+﻿using Microsoft.AspNetCore.Mvc;
+using SocialMediaApp.Models;
 
 namespace SocialMediaApp.Interfaces
 {
@@ -6,5 +7,6 @@ namespace SocialMediaApp.Interfaces
     {
          Task<List<Race>> GetAllUserRaces();
          Task<List<Club>> GetAllUserClubs();
+         Task<AppUser> GetUserById(string id);
     }
 }

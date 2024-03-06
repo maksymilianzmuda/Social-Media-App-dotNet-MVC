@@ -96,7 +96,7 @@ namespace SocialMediaApp.Controllers
                 var newUserResponse = await _userManager.CreateAsync(newUser, registerViewModel.Password);
                 if (newUserResponse.Succeeded)
                 {
-                    await _userManager.AddToRoleAsync(newUser, UserRoles.Admin);
+                    await _userManager.AddToRoleAsync(newUser, UserRoles.User);
                 }
 
                 return RedirectToAction("Index" , "Race");

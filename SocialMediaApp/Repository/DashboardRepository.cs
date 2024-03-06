@@ -1,4 +1,5 @@
-﻿using SocialMediaApp.Data;
+﻿using Microsoft.AspNetCore.Mvc.ActionConstraints;
+using SocialMediaApp.Data;
 using SocialMediaApp.Interfaces;
 using SocialMediaApp.Models;
 
@@ -15,16 +16,21 @@ namespace SocialMediaApp.Repository
         }
         public async Task<List<Club>>GetAllUserClubs()
         {
-            var curUser = _contextAccessor.HttpContext?.User;
-            var userClubs =  _context.Clubs.Where(x => x.AppUser.Id == curUser.ToString());
+            var curUser = _contextAccessor.HttpContext?.User.GetUserId();
+            var userClubs =  _context.Clubs.Where(x => x.AppUser.Id == curUser);
             return userClubs.ToList();
         }
 
         public async Task<List<Race>> GetAllUserRaces()
         {
-            var curUser = _contextAccessor.HttpContext?.User;
-            var userRaces =  _context.Races.Where(x => x.AppUser.Id == curUser.ToString());
+            var curUser = _contextAccessor.HttpContext?.User.GetUserId();
+            var userRaces =  _context.Races.Where(x => x.AppUser.Id == curUser);
             return userRaces.ToList();
+        }
+
+        public async Task<AppUser>GetUserById(string id)
+        {
+            return await _context.Users.FindAsync(id);
         }
 
         

@@ -13,11 +13,13 @@ namespace SocialMediaApp.Controllers
     {
         private readonly IClubRepository _clubRepository;
         private readonly IPhotoService _photoService;
-        public ClubController( IClubRepository clubRepository, IPhotoService photoService)
+        private readonly IHttpContextAccessor _contextAccessor;
+        public ClubController( IClubRepository clubRepository, IPhotoService photoService,IHttpContextAccessor contextAccessor)
         {
             
             _clubRepository = clubRepository;
             _photoService = photoService;
+            _contextAccessor = contextAccessor;
         }
         public async Task<IActionResult> Index()
         {
@@ -31,9 +33,13 @@ namespace SocialMediaApp.Controllers
             return View(club);
         }
 
-        public async Task<IActionResult> Create()
+        [HttpGet]
+        public IActionResult Create()
         {
-            return View();  
+            //use this to get id of the curent user. They can see the events created by them 
+            var curUserId = _contextAccessor.HttpContext?.User.GetUserId();
+            var createClubViewModel = new CreateClubViewModel { AppUserId = curUserId };
+            return View(createClubViewModel);  
         }
 
         [HttpPost]
@@ -48,6 +54,7 @@ namespace SocialMediaApp.Controllers
                     Title = clubVM.Title,
                     Description = clubVM.Description,
                     Image = result.Url.ToString(),
+                    AppUserId = clubVM.AppUserId,
                     Address = new Address
                     {
                         City = clubVM.Address.City,
@@ -111,7 +118,9 @@ namespace SocialMediaApp.Controllers
                     Title = clubVm.Title,
                     Description = clubVm.Description,
                     Image = photoResult.Url.ToString(),
+                    //AppUserId = clubVm.AppUserId,
                     AddressId = clubVm.AddressId,
+                    
                     Address = clubVm.Address
                 };
 
