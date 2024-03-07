@@ -39,7 +39,7 @@ namespace SocialMediaApp.Controllers
                 UserName = user.UserName,
                 Pace = user.Pace,
                 Distance = user.Distance,
-                Profi
+                
 
             };
             return View(userDetailViewModel);
