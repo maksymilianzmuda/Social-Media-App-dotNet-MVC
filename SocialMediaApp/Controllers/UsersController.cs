@@ -24,6 +24,7 @@ namespace SocialMediaApp.Controllers
                     UserName = user.UserName,
                     Pace = user.Pace,
                     Distance = user.Distance,
+                    ProfileImageUrl = user.ProfileImageUrl
                 };
                 result.Add(userViewModel);
             }
