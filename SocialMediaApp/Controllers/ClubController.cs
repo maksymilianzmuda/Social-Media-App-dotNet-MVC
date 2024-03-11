@@ -78,7 +78,7 @@ namespace SocialMediaApp.Controllers
             var club = await _clubRepository.GetByIdAsync(id);
             if (club == null)
                 return View("Error");
-            var clubVM = new EditClubViewModel
+            var clubVM = new EditDeleteClubViewModel
             {
                 Title = club.Title,
                 Description = club.Description,
@@ -91,7 +91,7 @@ namespace SocialMediaApp.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Edit(int id, EditClubViewModel clubVm)
+        public async Task<IActionResult> Edit(int id, EditDeleteClubViewModel clubVm)
         {
             if (!ModelState.IsValid)
             {
@@ -133,5 +133,34 @@ namespace SocialMediaApp.Controllers
             }
         }
 
+        public async Task<IActionResult>Delete(int id)
+        {
+            var club = await _clubRepository.GetByIdAsync(id);
+            if (club == null)
+                return View("Error");
+            var clubVM = new EditDeleteClubViewModel
+            {
+                Title = club.Title,
+                Description = club.Description,
+                AddressId = club.AddressId,
+                Address = club.Address,
+                URL = club.Image,
+                ClubCategory = club.ClubCategory
+            };
+            return View(clubVM);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public async Task<IActionResult> DeleteClub(int id, EditDeleteClubViewModel clubVm)
+        {
+            
+            //to prevent an error
+            var userClub = await _clubRepository.GetByIdAsyncNoTracking(id);
+            
+           
+            _clubRepository.Delete(userClub);
+            return RedirectToAction("Index");
+            
+        }
     }
 }

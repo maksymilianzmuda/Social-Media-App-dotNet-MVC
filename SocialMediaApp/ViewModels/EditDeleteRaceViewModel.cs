@@ -3,7 +3,7 @@ using SocialMediaApp.Models;
 
 namespace SocialMediaApp.ViewModels
 {
-    public class EditRaceViewModel
+    public class EditDeleteRaceViewModel
     {
         public int Id { get; set; }
         public string Title { get; set; }

@@ -74,7 +74,7 @@ namespace SocialMediaApp.Controllers
             var race = await _raceRepository.GetByIdAsync(id);
             if (race == null)
                 return View("Error");
-            var raceVm = new EditRaceViewModel
+            var raceVm = new EditDeleteRaceViewModel
             {
                 Title = race.Title,
                 Description = race.Description,
@@ -87,7 +87,7 @@ namespace SocialMediaApp.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Edit(int id, EditClubViewModel raceVm)
+        public async Task<IActionResult> Edit(int id, EditDeleteClubViewModel raceVm)
         {
             if (!ModelState.IsValid)
             {
@@ -125,6 +125,36 @@ namespace SocialMediaApp.Controllers
             {
                 return View(raceVm);
             }
+        }
+
+        public async Task<IActionResult> Delete(int id)
+        {
+            var race = await _raceRepository.GetByIdAsync(id);
+            if (race == null)
+                return View("Error");
+            var raceVM = new EditDeleteRaceViewModel
+            {
+                Title = race.Title,
+                Description = race.Description,
+                AddressId = race.AddressId,
+                Address = race.Address,
+                URL = race.Image,
+                RaceCategory = race.RaceCategory
+            };
+            return View(raceVM);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public async Task<IActionResult> DeleteClub(int id, EditDeleteRaceViewModel raceVm)
+        {
+
+            //to prevent an error
+            var userRace = await _raceRepository.GetByIdAsyncNoTracking(id);
+
+
+            _raceRepository.Delete(userRace);
+            return RedirectToAction("Index");
+
         }
     }
 }
