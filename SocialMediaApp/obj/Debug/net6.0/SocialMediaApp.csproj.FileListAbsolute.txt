@@ -86,4 +86,13 @@ C:\Users\maxzm\source\repos\SocialMediaApp\SocialMediaApp\bin\Debug\net6.0\runti
 C:\Users\maxzm\source\repos\SocialMediaApp\SocialMediaApp\bin\Debug\net6.0\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
 C:\Users\maxzm\source\repos\SocialMediaApp\SocialMediaApp\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
 C:\Users\maxzm\source\repos\SocialMediaApp\SocialMediaApp\obj\Debug\net6.0\SocialMediaApp.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\maxzm\source\repos\SocialMediaApp\SocialMediaApp\obj\Debug\net6.0\SocialMediaApp.csproj.CopyComplete
+C:\Users\maxzm\source\repos\SocialMediaApp\SocialMediaApp\obj\Debug\net6.0\SocialMediaApp.sourcelink.json
+C:\Users\maxzm\source\repos\SocialMediaApp\SocialMediaApp\obj\Debug\net6.0\staticwebassets\msbuild.SocialMediaApp.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\maxzm\source\repos\SocialMediaApp\SocialMediaApp\obj\Debug\net6.0\staticwebassets\msbuild.build.SocialMediaApp.props
+C:\Users\maxzm\source\repos\SocialMediaApp\SocialMediaApp\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.SocialMediaApp.props
+C:\Users\maxzm\source\repos\SocialMediaApp\SocialMediaApp\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.SocialMediaApp.props
+C:\Users\maxzm\source\repos\SocialMediaApp\SocialMediaApp\obj\Debug\net6.0\staticwebassets.pack.json
+C:\Users\maxzm\source\repos\SocialMediaApp\SocialMediaApp\obj\Debug\net6.0\SocialMe.7182560A.Up2Date
+C:\Users\maxzm\source\repos\SocialMediaApp\SocialMediaApp\bin\Debug\net6.0\Castle.Core.dll
+C:\Users\maxzm\source\repos\SocialMediaApp\SocialMediaApp\bin\Debug\net6.0\FakeItEasy.dll
+C:\Users\maxzm\source\repos\SocialMediaApp\SocialMediaApp\bin\Debug\net6.0\FluentAssertions.dll
